@@ -26,7 +26,7 @@ workflow BTV_CONSENSUS {
   
   // refseq input files
 
-    Channel.fromPath("${params.reference_dir}")
+    Channel.fromPath("${params.reference_fasta}")
     .collect()
     .map { reference ->
             def meta2 = [:]
