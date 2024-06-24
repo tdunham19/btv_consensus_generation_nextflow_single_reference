@@ -1,0 +1,11 @@
+[M::mm_idx_gen::0.004*7.98] collected minimizers
+[M::mm_idx_gen::0.009*5.04] sorted minimizers
+[M::main::0.009*5.01] loaded/built the index for 0 target sequence(s)
+[M::mm_mapopt_update::0.009*4.98] mid_occ = 1000000
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 0
+[M::mm_idx_stat::0.009*4.96] distinct minimizers: 0 (-nan% are singletons); average occurrences: -nan; average spacing: -nan; total length: 0
+[M::worker_pipeline::2.561*1.42] mapped 86762 sequences
+[M::main] Version: 2.28-r1209
+[M::main] CMD: minimap2 -ax map-ont reference FABADRU_891979.fastq.gz
+[M::main] Real time: 2.572 sec; CPU: 3.648 sec; Peak RSS: 0.103 GB
+/home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/0d/a2323bd1629e0df283a5ea83df83c2/.command.sh: line 8: warning: here-document at line 4 delimited by end-of-file (wanted `END_VERSIONS')

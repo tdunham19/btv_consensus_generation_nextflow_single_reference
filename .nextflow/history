@@ -1,3 +1,7 @@
 2024-06-21 15:29:51	10.1s	jolly_meninsky	OK	601e55c2829f44cd002a5ac7c794c172	62b72ef4-a6e8-4ef3-8de4-140361a9f13f	nextflow run btv_cons_061224.nf
 2024-06-21 15:38:32	8.8s	adoring_panini	OK	601e55c2829f44cd002a5ac7c794c172	ea2cae4a-8c48-47d9-9ae7-ab124442ca7d	nextflow run btv_cons_061224.nf
 2024-06-24 12:35:28	9.4s	nasty_volhard	OK	601e55c2829f44cd002a5ac7c794c172	331e0f17-c8bc-4088-946a-c1eb6c152591	nextflow run btv_cons_061224.nf
+2024-06-24 12:44:32	-	confident_pasteur	-	601e55c2829f44cd002a5ac7c794c172	c7ac1eca-9892-4b31-aee9-30047e87e0d0	nextflow run btv_cons_061224.nf
+2024-06-24 12:47:47	9.5s	zen_bohr	OK	601e55c2829f44cd002a5ac7c794c172	cf037429-24d1-4692-b265-9c86c8bbb195	nextflow run btv_cons_061224.nf
+2024-06-24 12:51:35	8.8s	high_meitner	OK	601e55c2829f44cd002a5ac7c794c172	124dc5e9-c5d7-433f-9a67-016c86db8b2f	nextflow run btv_cons_061224.nf
+2024-06-24 12:55:12	9.1s	awesome_shannon	OK	601e55c2829f44cd002a5ac7c794c172	9be4d83f-07c6-44b4-a2ef-2278ce5acede	nextflow run btv_cons_061224.nf

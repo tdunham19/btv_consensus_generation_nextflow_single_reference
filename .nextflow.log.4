@@ -1,0 +1,105 @@
+Jun-24 12:35:27.370 [main] DEBUG nextflow.cli.Launcher - $> nextflow run btv_cons_061224.nf
+Jun-24 12:35:27.536 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.1
+Jun-24 12:35:27.569 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/tdunham/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.3,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.1
+Jun-24 12:35:27.585 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jun-24 12:35:27.586 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jun-24 12:35:27.591 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jun-24 12:35:27.608 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jun-24 12:35:27.638 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/nextflow.config
+Jun-24 12:35:27.640 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/nextflow.config
+Jun-24 12:35:27.677 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jun-24 12:35:28.757 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Jun-24 12:35:28.785 [main] INFO  nextflow.cli.CmdRun - Launching `btv_cons_061224.nf` [nasty_volhard] DSL2 - revision: 601e55c282
+Jun-24 12:35:28.786 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jun-24 12:35:28.786 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jun-24 12:35:28.801 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/tdunham/.nextflow/secrets/store.json
+Jun-24 12:35:28.807 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@75d982d3] - activable => nextflow.secret.LocalSecretsProvider@75d982d3
+Jun-24 12:35:28.894 [main] DEBUG nextflow.Session - Session UUID: 331e0f17-c8bc-4088-946a-c1eb6c152591
+Jun-24 12:35:28.894 [main] DEBUG nextflow.Session - Run name: nasty_volhard
+Jun-24 12:35:28.895 [main] DEBUG nextflow.Session - Executor pool size: 64
+Jun-24 12:35:28.905 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jun-24 12:35:28.911 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=192; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Jun-24 12:35:28.949 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.10.1 build 5891
+  Created: 12-01-2024 22:01 UTC (15:01 MDT)
+  System: Linux 5.15.0-91-generic
+  Runtime: Groovy 3.0.19 on OpenJDK 64-Bit Server VM 11.0.23+9-post-Ubuntu-1ubuntu122.04.1
+  Encoding: UTF-8 (UTF-8)
+  Process: 1054792@aidlngs01 [127.0.1.1]
+  CPUs: 64 - Mem: 440.8 GB (90.5 GB) - Swap: 8 GB (8 GB)
+Jun-24 12:35:28.984 [main] DEBUG nextflow.Session - Work-dir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work [xfs]
+Jun-24 12:35:29.008 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jun-24 12:35:29.025 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jun-24 12:35:29.065 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jun-24 12:35:29.079 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 65; maxThreads: 1000
+Jun-24 12:35:29.163 [main] DEBUG nextflow.Session - Session start
+Jun-24 12:35:29.786 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-24 12:35:30.799 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-24 12:35:30.799 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-24 12:35:30.808 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jun-24 12:35:30.816 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=64; memory=440.8 GB; capacity=64; pollInterval=100ms; dumpInterval=5m
+Jun-24 12:35:30.821 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Jun-24 12:35:30.933 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-24 12:35:30.934 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-24 12:35:30.947 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-24 12:35:30.948 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-24 12:35:30.957 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-24 12:35:30.957 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-24 12:35:30.966 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-24 12:35:30.967 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-24 12:35:30.973 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SAMTOOLS_SORT, BTV_CONSENSUS:MINIMAP2_ALIGN, BTV_CONSENSUS:SAMTOOLS_INDEX, IDENTIFY_BEST_SEGMENTS_FROM_SAM, BTV_CONSENSUS:SAMTOOLS_VIEW, BTV_CONSENSUS:IDENTIFY_BEST_SEGMENTS_FROM_SAM, MINIMAP2_ALIGN, SAMTOOLS_VIEW, SAMTOOLS_INDEX, BTV_CONSENSUS:SAMTOOLS_SORT
+Jun-24 12:35:30.974 [main] DEBUG nextflow.Session - Igniting dataflow network (8)
+Jun-24 12:35:30.989 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > BTV_CONSENSUS:MINIMAP2_ALIGN
+Jun-24 12:35:30.989 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/fastq/; pattern: FABADRU_*.fastq.gz; options: [maxDepth:1, checkIfExists:true]
+Jun-24 12:35:30.997 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > BTV_CONSENSUS:SAMTOOLS_VIEW
+Jun-24 12:35:31.003 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > BTV_CONSENSUS:SAMTOOLS_SORT
+Jun-24 12:35:31.012 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > BTV_CONSENSUS:SAMTOOLS_INDEX
+Jun-24 12:35:31.017 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > BTV_CONSENSUS:IDENTIFY_BEST_SEGMENTS_FROM_SAM
+Jun-24 12:35:31.027 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_8a003a3d110d87c7: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/./modules/local/minimap2/align/main.nf
+  Script_ffdc3320118a9f38: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/./modules/local/samtools/sort/main.nf
+  Script_e80e7b4c2212ccc2: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/btv_cons_061224.nf
+  Script_eaae76c50dffdd4e: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/./modules/local/identify_best_segments_from_sam/main.nf
+  Script_275b1593dca96251: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/./modules/local/samtools/index/main.nf
+  Script_912d69e494b43330: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/./modules/local/samtools/view/main.nf
+Jun-24 12:35:31.028 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jun-24 12:35:31.028 [main] DEBUG nextflow.Session - Session await
+Jun-24 12:35:31.389 [Actor Thread 24] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/mulled-v2-66534bcbb7031a148b13e2ad42583020b9cd25c4:3161f532a5ea6f1dec9be5667c9efc2afdac6104-0; path=/home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/singularity/depot.galaxyproject.org-singularity-mulled-v2-66534bcbb7031a148b13e2ad42583020b9cd25c4-3161f532a5ea6f1dec9be5667c9efc2afdac6104-0.img
+Jun-24 12:35:31.732 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:31.735 [Task submitter] INFO  nextflow.Session - [30/83af48] Submitted process > BTV_CONSENSUS:MINIMAP2_ALIGN (FABADRU_600588)
+Jun-24 12:35:31.752 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:31.752 [Task submitter] INFO  nextflow.Session - [29/b9a09a] Submitted process > BTV_CONSENSUS:MINIMAP2_ALIGN (FABADRU_891979)
+Jun-24 12:35:34.978 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: BTV_CONSENSUS:MINIMAP2_ALIGN (FABADRU_600588); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/30/83af48497f4ffa772474c8604433d6]
+Jun-24 12:35:35.032 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: BTV_CONSENSUS:MINIMAP2_ALIGN (FABADRU_891979); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/29/b9a09af1815eb34546a7b1d677235e]
+Jun-24 12:35:35.039 [Actor Thread 35] DEBUG nextflow.container.SingularityCache - Singularity found local store for image=https://depot.galaxyproject.org/singularity/samtools:1.20--h50ea8bc_0; path=/home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/singularity/depot.galaxyproject.org-singularity-samtools-1.20--h50ea8bc_0.img
+Jun-24 12:35:35.083 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:35.085 [Task submitter] INFO  nextflow.Session - [e2/dd2ec5] Submitted process > BTV_CONSENSUS:SAMTOOLS_VIEW (FABADRU_600588)
+Jun-24 12:35:35.116 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:35.118 [Task submitter] INFO  nextflow.Session - [85/3e19ec] Submitted process > BTV_CONSENSUS:SAMTOOLS_VIEW (FABADRU_891979)
+Jun-24 12:35:35.135 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:35.137 [Task submitter] INFO  nextflow.Session - [7e/83a06c] Submitted process > BTV_CONSENSUS:IDENTIFY_BEST_SEGMENTS_FROM_SAM (FABADRU_891979)
+Jun-24 12:35:35.152 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:35.154 [Task submitter] INFO  nextflow.Session - [b4/3d5980] Submitted process > BTV_CONSENSUS:IDENTIFY_BEST_SEGMENTS_FROM_SAM (FABADRU_600588)
+Jun-24 12:35:35.677 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: BTV_CONSENSUS:IDENTIFY_BEST_SEGMENTS_FROM_SAM (FABADRU_891979); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/7e/83a06c6b6de75bbe3c73dafc6d5010]
+Jun-24 12:35:35.751 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: BTV_CONSENSUS:IDENTIFY_BEST_SEGMENTS_FROM_SAM (FABADRU_600588); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/b4/3d59801ed62e99b61701aacb852cca]
+Jun-24 12:35:35.838 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: BTV_CONSENSUS:SAMTOOLS_VIEW (FABADRU_600588); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/e2/dd2ec54d5ff9c889a8186ef6699b19]
+Jun-24 12:35:35.871 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: BTV_CONSENSUS:SAMTOOLS_VIEW (FABADRU_891979); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/85/3e19ec92859dd67698e06f951aa5a2]
+Jun-24 12:35:35.872 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:35.873 [Task submitter] INFO  nextflow.Session - [5a/9739f8] Submitted process > BTV_CONSENSUS:SAMTOOLS_SORT (FABADRU_600588)
+Jun-24 12:35:35.905 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:35.906 [Task submitter] INFO  nextflow.Session - [d0/efb3d2] Submitted process > BTV_CONSENSUS:SAMTOOLS_SORT (FABADRU_891979)
+Jun-24 12:35:36.480 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: BTV_CONSENSUS:SAMTOOLS_SORT (FABADRU_600588); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/5a/9739f8021e898bdf0ff0e572471da7]
+Jun-24 12:35:36.512 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:36.514 [Task submitter] INFO  nextflow.Session - [05/00a445] Submitted process > BTV_CONSENSUS:SAMTOOLS_INDEX (FABADRU_600588)
+Jun-24 12:35:36.575 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: BTV_CONSENSUS:SAMTOOLS_SORT (FABADRU_891979); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/d0/efb3d23c1324445b06d89444a34b83]
+Jun-24 12:35:36.601 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-24 12:35:36.602 [Task submitter] INFO  nextflow.Session - [da/d96ef3] Submitted process > BTV_CONSENSUS:SAMTOOLS_INDEX (FABADRU_891979)
+Jun-24 12:35:37.162 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: BTV_CONSENSUS:SAMTOOLS_INDEX (FABADRU_600588); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/05/00a44531f95bd821db02a29c2e4767]
+Jun-24 12:35:37.246 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: BTV_CONSENSUS:SAMTOOLS_INDEX (FABADRU_891979); status: COMPLETED; exit: 0; error: -; workDir: /home/tdunham/nextflow_tutorial/btv_consensus_generation_nextflow/work/da/d96ef34d31035f530cc3f178224daf]
+Jun-24 12:35:37.252 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jun-24 12:35:37.255 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Jun-24 12:35:37.256 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jun-24 12:35:37.277 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=10; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=11.1s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=0; ]
+Jun-24 12:35:37.368 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jun-24 12:35:37.405 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jun-24 12:35:37.406 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

@@ -1,0 +1,4 @@
+    "BTV_CONSENSUS:MINIMAP2_ALIGN":
+        minimap2: 2.28-r1209
+        samtools: 1.20 
+    END_VERSIONS
