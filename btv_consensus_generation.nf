@@ -1,15 +1,19 @@
-include { MINIMAP2_ALIGN as MINIMAP2_ALIGN_1   } from './modules/local/minimap2/align/main.nf'
-include { SAMTOOLS_VIEW	 as SAMTOOLS_VIEW_1    } from './modules/local/samtools/view/main.nf'
-include { SAMTOOLS_SORT  as SAMTOOLS_SORT_1    } from './modules/local/samtools/sort/main.nf'
-include { SAMTOOLS_INDEX as SAMTOOLS_INDEX_1   } from './modules/local/samtools/index/main.nf'
-include { IDENTIFY_BEST_SEGMENTS_FROM_SAM      } from './modules/local/identify_best_segments_from_sam/main.nf'
-include { MINIMAP2_ALIGN as MINIMAP2_ALIGN_2   } from './modules/local/minimap2/align/main2.nf'
-include { SAMTOOLS_VIEW	 as SAMTOOLS_VIEW_2    } from './modules/local/samtools/view/main.nf'
-include { SAMTOOLS_SORT  as SAMTOOLS_SORT_2    } from './modules/local/samtools/sort/main.nf'
-include { SAMTOOLS_INDEX as SAMTOOLS_INDEX_2   } from './modules/local/samtools/index/main.nf'
-include { SAMTOOLS_FAIDX  					   } from './modules/local/samtools/faidx/main.nf'
-include { BCFTOOLS_MPILEUP 					   } from './modules/local/bcftools/mpileup/main.nf'
-include { CREATE_MASK_FILE				       } from './modules/local/create_mask_file/main.nf'
+include { MINIMAP2_ALIGN as MINIMAP2_ALIGN_TO_EXISTING  	 } from './modules/local/minimap2/align/main.nf'
+include { SAMTOOLS_VIEW	 as SAMTOOLS_VIEW_ALIGNMENT    		 } from './modules/local/samtools/view/main.nf'
+include { SAMTOOLS_SORT  as SAMTOOLS_SORT_ALIGNMENT    		 } from './modules/local/samtools/sort/main.nf'
+include { SAMTOOLS_INDEX as SAMTOOLS_INDEX_ALIGNMENT  		 } from './modules/local/samtools/index/main.nf'
+include { IDENTIFY_BEST_SEGMENTS_FROM_SAM     				 } from './modules/local/identify_best_segments_from_sam/main.nf'
+include { MINIMAP2_ALIGN as MINIMAP2_ALIGN_TO_NEW_DRAFT  	 } from './modules/local/minimap2/align/main2.nf'
+include { SAMTOOLS_VIEW	 as SAMTOOLS_VIEW_BEST10_ALIGNMENT   } from './modules/local/samtools/view/main.nf'
+include { SAMTOOLS_SORT  as SAMTOOLS_SORT_BEST10_ALIGNMENT   } from './modules/local/samtools/sort/main.nf'
+include { SAMTOOLS_INDEX as SAMTOOLS_INDEX_BEST10_ALIGNMENT  } from './modules/local/samtools/index/main.nf'
+include { SAMTOOLS_FAIDX  							     	 } from './modules/local/samtools/faidx/main.nf'
+include { BCFTOOLS_MPILEUP 					   			 	 } from './modules/local/bcftools/mpileup/main.nf'
+include { CREATE_MASK_FILE				       			 	 } from './modules/local/create_mask_file/main.nf'
+include { BCFTOOLS_VIEW	 					   			 	 } from './modules/local/bcftools/view/main.nf'
+include { BCFTOOLS_INDEX as BCFTOOLS_INDEX_BCF	 			 } from './modules/local/bcftools/index/main.nf'
+include { BCFTOOLS_CALL 	 				   			 	 } from './modules/local/bcftools/call/main.nf'
+include { BCFTOOLS_INDEX as BCFTOOLS_INDEX_CONS	 			 } from './modules/local/bcftools/index/main.nf'
 
 workflow BTV_CONSENSUS {
 
@@ -42,31 +46,31 @@ workflow BTV_CONSENSUS {
     .set { ch_reference }
     
   // run minimap2 on input reads
-  MINIMAP2_ALIGN_1 ( ch_reads, ch_reference )
+  MINIMAP2_ALIGN_TO_EXISTING ( ch_reads, ch_reference )
   
   // run samtools to process minimap2 alignment - view
-  SAMTOOLS_VIEW_1 ( MINIMAP2_ALIGN_1.out.sam )
+  SAMTOOLS_VIEW_ALIGNMENT ( MINIMAP2_ALIGN_TO_EXISTING.out.sam )
   
   // run samtools to process minimap2 alignment - sort
-  SAMTOOLS_SORT_1 ( SAMTOOLS_VIEW_1.out.bam )
+  SAMTOOLS_SORT_ALIGNMENT ( SAMTOOLS_VIEW_ALIGNMENT.out.bam )
   
   // run samtools to process minimap2 alignment - index
-  SAMTOOLS_INDEX_1 ( SAMTOOLS_SORT_1.out.bam )
+  SAMTOOLS_INDEX_ALIGNMENT ( SAMTOOLS_SORT_ALIGNMENT.out.bam )
   
   // extract new fasta file containing best aligned-to seqs for this dataset
-  IDENTIFY_BEST_SEGMENTS_FROM_SAM ( MINIMAP2_ALIGN_1.out.sam, ch_reference )
+  IDENTIFY_BEST_SEGMENTS_FROM_SAM ( MINIMAP2_ALIGN_TO_EXISTING.out.sam, ch_reference )
   
   // re-minimap data against best 10 BTV ref seqs.
-  MINIMAP2_ALIGN_2 ( IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa, ch_reads )
+  MINIMAP2_ALIGN_TO_NEW_DRAFT ( IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa, ch_reads )
   
   // run samtools to process minimap2 alignment again - view
-  SAMTOOLS_VIEW_2 ( MINIMAP2_ALIGN_2.out.sam )
+  SAMTOOLS_VIEW_BEST10_ALIGNMENT ( MINIMAP2_ALIGN_TO_NEW_DRAFT.out.sam )
   
   // run samtools to process minimap2 alignment again - sort
-  SAMTOOLS_SORT_2 ( SAMTOOLS_VIEW_2.out.bam )
+  SAMTOOLS_SORT_BEST10_ALIGNMENT ( SAMTOOLS_VIEW_BEST10_ALIGNMENT.out.bam )
   
    // run samtools to process minimap2 alignment - index
-  SAMTOOLS_INDEX_2 ( SAMTOOLS_SORT_2.out.bam )
+  SAMTOOLS_INDEX_BEST10_ALIGNMENT ( SAMTOOLS_SORT_BEST10_ALIGNMENT.out.bam )
   
   
   // commands below create "new" consensus sequences
@@ -76,12 +80,24 @@ workflow BTV_CONSENSUS {
   SAMTOOLS_FAIDX ( IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa )
   
   // mpileup calls variants -> output is a vcf file
-  BCFTOOLS_MPILEUP ( SAMTOOLS_SORT_2.out.bam, IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa )
+  BCFTOOLS_MPILEUP ( SAMTOOLS_SORT_BEST10_ALIGNMENT.out.bam, IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa )
   
   // this script creates a mask file
   // this is necessary because otherwise bcftools consensus doesn't hanlde positions with no coverage well
   CREATE_MASK_FILE ( BCFTOOLS_MPILEUP.out.vcf )
-
+  
+  // convert vcf -> compressed vcf to make bcftools happy
+  BCFTOOLS_VIEW ( BCFTOOLS_MPILEUP.out.vcf ) 
+  
+  // need to make an indexed vcf file to make other bcftools commands happy
+  BCFTOOLS_INDEX_BCF ( BCFTOOLS_VIEW.out.gz )
+  
+  // bcftools call creates a new vcf file that has consensus bases 
+  BCFTOOLS_CALL ( BCFTOOLS_VIEW.out.gz )
+  
+ // need to make an indexed cons.vcf.gz file to make other bcftools commands happy
+  BCFTOOLS_INDEX_CONS ( BCFTOOLS_CALL.out.vcf )
+  
   }
   
   // specify the entry point for the workflow
