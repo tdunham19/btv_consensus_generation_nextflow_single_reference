@@ -1,6 +1,7 @@
 process BCFTOOLS_MPILEUP {
     tag "$meta.id"
-
+	label "no_publish"
+    
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/bcftools:1.20--h8b25389_0':
