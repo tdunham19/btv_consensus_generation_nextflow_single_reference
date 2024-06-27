@@ -97,13 +97,13 @@ workflow BTV_CONSENSUS {
   // bcftools call creates a new vcf file that has consensus bases 
   BCFTOOLS_CALL ( BCFTOOLS_VIEW.out.gz )
   
- // need to make an indexed cons.vcf.gz file to make other bcftools commands happy
+  // need to make an indexed cons.vcf.gz file to make other bcftools commands happy
   BCFTOOLS_INDEX_CONS ( BCFTOOLS_CALL.out.vcf )
   
- // bcftools consensus will output a fasta file containing new draft consensus sequence based on called variants
- // pipe output through remove_trailing_fasta_Ns to strip N characters from beginning and ends of seqs
- // and then through a sed to append new_X_draft_sequence to name of fasta record
- BCFTOOLS_CONSENSUS ( CREATE_MASK_FILE.out.mask, IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa, BCFTOOLS_CALL.out.vcf) 
+  // bcftools consensus will output a fasta file containing new draft consensus sequence based on called variants
+  // pipe output through remove_trailing_fasta_Ns to strip N characters from beginning and ends of seqs
+  // and then through a sed to append new_X_draft_sequence to name of fasta record
+  BCFTOOLS_CONSENSUS ( CREATE_MASK_FILE.out.mask, IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa, BCFTOOLS_INDEX_CONS.out.gz ) 
   
   }
   

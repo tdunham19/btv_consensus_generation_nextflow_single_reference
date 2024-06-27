@@ -16,7 +16,7 @@ process BCFTOOLS_CALL {
     script:
     """
     bcftools call -c ${input} -O b > ${meta.id}.cons.vcf.gz
-
+    
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         bcftools: \$(bcftools --version 2>&1 | head -n1 | sed 's/^.*bcftools //; s/ .*\$//')

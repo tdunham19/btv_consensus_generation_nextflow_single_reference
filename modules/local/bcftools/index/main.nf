@@ -1,6 +1,5 @@
 process BCFTOOLS_INDEX {
     tag "$meta.id"
-    label "no_publish"
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -12,6 +11,8 @@ process BCFTOOLS_INDEX {
 
     output:
     tuple val(meta), path("*.csi"), optional:true, emit: csi
+    tuple val(meta), path("*.tbi"), optional:true, emit: tbi
+    tuple val(meta), path("*.gz"), optional:true, emit: gz
 
     script:
     """
