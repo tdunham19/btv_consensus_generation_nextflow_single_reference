@@ -11,8 +11,8 @@ process BCFTOOLS_INDEX {
 
     output:
     tuple val(meta), path("*.csi"), optional:true, emit: csi
-    tuple val(meta), path("*.tbi"), optional:true, emit: tbi
-    tuple val(meta), path("*.gz"), optional:true, emit: gz
+    // tuple val(meta), path("*.tbi"), optional:true, emit: tbi
+    // tuple val(meta), path("*.gz"), optional:true, emit: gz
 
     script:
     """
