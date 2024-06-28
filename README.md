@@ -1,4 +1,4 @@
-### BTV Consensus Sequence Generation - Long-Read Nextflow Pipeline 
+# BTV Consensus Sequence Generation - Long-Read Nextflow Pipeline 
 ## Created by Tillie Dunham on 06.21.24
 
 This pipeline is written in nextflow and generates a consensus sequence for Bluetongue virus (BTV) from long-read sequencing reads generated with Oxford Nanopore technology. 
