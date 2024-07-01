@@ -15,6 +15,7 @@ include { BCFTOOLS_INDEX as BCFTOOLS_INDEX_BCF	 			 } from './modules/local/bcft
 include { BCFTOOLS_CALL 	 				   			 	 } from './modules/local/bcftools/call/main.nf'
 include { BCFTOOLS_INDEX as BCFTOOLS_INDEX_CONS	 			 } from './modules/local/bcftools/index/main.nf'
 include { BCFTOOLS_CONSENSUS					 			 } from './modules/local/bcftools/consensus/main.nf'
+include { REMOVE_TRAILING_FASTA_NS					 		 } from './modules/local/remove_trailing_fasta_ns/main.nf'
 
 workflow BTV_CONSENSUS {
 
@@ -101,6 +102,9 @@ workflow BTV_CONSENSUS {
   
   // bcftools consensus will output a fasta file containing new draft consensus sequence based on called variants
   BCFTOOLS_CONSENSUS ( CREATE_MASK_FILE.out.mask, IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa, BCFTOOLS_INDEX_CONS.out.gz_and_csi ) 
+  
+  // pipe output through remove_trailing_fasta_Ns to strip N characters from beginning and ends of seqs
+  REMOVE_TRAILING_FASTA_NS ( BCFTOOLS_CONSENSUS.out.fa )
   
   }
   
