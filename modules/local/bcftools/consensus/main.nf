@@ -9,7 +9,7 @@ process BCFTOOLS_CONSENSUS {
     input:
     tuple val(meta), path(mask)
     tuple val(meta2), path(best10refseq)
-    tuple val(meta3), path(cons)
+    tuple val(meta3), path(cons), path(csi)
 
     output:
     tuple val(meta), path('*.fa'), emit: fa

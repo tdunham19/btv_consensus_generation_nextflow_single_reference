@@ -8,14 +8,14 @@ process BCFTOOLS_CALL {
         'biocontainers/bcftools:1.20--h8b25389_0' }"
 
     input:
-    tuple val(meta), path(input)
+    tuple val(meta), path(gz), path(csi)
 
     output:
     tuple val(meta), path("*.gz") , emit: vcf
 
     script:
     """
-    bcftools call -c ${input} -O b > ${meta.id}.cons.vcf.gz
+    bcftools call -c ${gz} -O b > ${meta.id}.cons.vcf.gz
     
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
