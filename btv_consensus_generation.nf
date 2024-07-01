@@ -16,6 +16,7 @@ include { BCFTOOLS_CALL 	 				   			 	 } from './modules/local/bcftools/call/mai
 include { BCFTOOLS_INDEX as BCFTOOLS_INDEX_CONS	 			 } from './modules/local/bcftools/index/main.nf'
 include { BCFTOOLS_CONSENSUS					 			 } from './modules/local/bcftools/consensus/main.nf'
 include { REMOVE_TRAILING_FASTA_NS					 		 } from './modules/local/remove_trailing_fasta_ns/main.nf'
+include { SED										 		 } from './modules/local/sed/main.nf'
 
 workflow BTV_CONSENSUS {
 
@@ -105,6 +106,9 @@ workflow BTV_CONSENSUS {
   
   // pipe output through remove_trailing_fasta_Ns to strip N characters from beginning and ends of seqs
   REMOVE_TRAILING_FASTA_NS ( BCFTOOLS_CONSENSUS.out.fa )
+  
+  // pipe output through a sed to append new_X_draft_sequence to name of fasta record
+  SED ( REMOVE_TRAILING_FASTA_NS.out.fa )
   
   }
   
