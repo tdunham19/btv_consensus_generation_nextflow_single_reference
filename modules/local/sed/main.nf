@@ -11,6 +11,6 @@ process SED {
 
     shell:
     '''
-	sed "/^>/ s/$/!{input}/"  >  !{meta.id}_new_draft_seqs.fa 
+	sed "/^>/ s/$/!{meta.id}/" "!{input}" > "!{meta.id}_new_draft_seqs.fa"
     '''
 }
