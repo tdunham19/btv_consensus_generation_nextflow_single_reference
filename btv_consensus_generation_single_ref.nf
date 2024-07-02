@@ -60,10 +60,10 @@ workflow BTV_CONSENSUS {
   
   
   // have to make a .fai file to make mpileup happy
-  SAMTOOLS_FAIDX ( IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa )
+  SAMTOOLS_FAIDX ( ch_reference )
   
   // mpileup calls variants -> output is a vcf file
-  BCFTOOLS_MPILEUP ( SAMTOOLS_SORT_BEST10_ALIGNMENT.out.bam, IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa )
+  BCFTOOLS_MPILEUP ( SAMTOOLS_SORT_BEST10_ALIGNMENT.out.bam, ch_reference )
   
   // this script creates a mask file
   // this is necessary because otherwise bcftools consensus doesn't hanlde positions with no coverage well
@@ -82,7 +82,7 @@ workflow BTV_CONSENSUS {
   BCFTOOLS_INDEX_CONS ( BCFTOOLS_CALL.out.vcf )
   
   // bcftools consensus will output a fasta file containing new draft consensus sequence based on called variants
-  BCFTOOLS_CONSENSUS ( CREATE_MASK_FILE.out.mask, IDENTIFY_BEST_SEGMENTS_FROM_SAM.out.fa, BCFTOOLS_INDEX_CONS.out.gz_and_csi ) 
+  BCFTOOLS_CONSENSUS ( CREATE_MASK_FILE.out.mask, ch_reference, BCFTOOLS_INDEX_CONS.out.gz_and_csi ) 
   
   // pipe output through remove_trailing_fasta_Ns to strip N characters from beginning and ends of seqs
   REMOVE_TRAILING_FASTA_NS ( BCFTOOLS_CONSENSUS.out.fa )
