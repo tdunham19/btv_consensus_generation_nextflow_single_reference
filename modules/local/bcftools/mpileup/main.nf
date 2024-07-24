@@ -16,7 +16,7 @@ process BCFTOOLS_MPILEUP {
     
     script:
     """
-    bcftools mpileup -f ${best10refseq} -Ov -o ${meta.id}.vcf ${input}
+    bcftools mpileup -f ${best10refseq} -Ov --ar incAD -o ${meta.id}.vcf ${input}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
